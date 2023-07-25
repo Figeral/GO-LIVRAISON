@@ -61,7 +61,7 @@ class Article(models.Model):
         managed = True
         verbose_name = 'article'
         verbose_name_plural = 'articles'
-        ordering=['added']
+        ordering=['-added']
 
 
 
