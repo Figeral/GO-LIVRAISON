@@ -1,0 +1,25 @@
+{% include "../base.html" %}
+
+<div class="categories">
+{% block content %}
+
+{% for category in categories  %}
+        <h2>{{category.reference}}</h2>
+        <div class="item">
+         {% for article in articles %}
+         {% if article.category.reference == category.reference %}
+            <div class="image">
+
+            </div>
+            <div class="description">
+                noms:{{article.name}},marque:{{ article.marque }},coleur{{ article.color }},fournisseur:{{ article.category.supplier.name }}</li>
+            </div>
+        </div>
+        
+      {% endif %}
+      {% endfor %}
+   {% endfor %}
+
+{% endblock content %}
+    
+</div>

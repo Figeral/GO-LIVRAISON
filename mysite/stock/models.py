@@ -1,0 +1,69 @@
+from django.db import models
+from django.utils import timezone
+from django.core.validators import MaxValueValidator
+
+
+#convention:pour les noms des relations c'est du parent aux enfants 
+
+class Supplier(models.Model):
+    name=models.CharField(max_length=50)
+    surname=models.CharField(max_length=50)
+    store=models.CharField(max_length=50)
+    location=models.CharField(max_length=100)
+    telephone=models.BigIntegerField('+237')
+    
+    def __str__(self) :
+        return self.name
+    class Meta:
+        db_table = 'supplier'
+        managed = True
+        verbose_name = 'supplier'
+        verbose_name_plural = 'suppliers'
+        ordering=['name']
+
+class Category(models.Model):
+    reference=models.CharField(max_length=50)
+    quantity=models.BigIntegerField()
+    supplier=models.ForeignKey(Supplier,on_delete=models.CASCADE,related_name="supplier_category")
+
+    def __str__(self):
+        return self.reference
+
+    class Meta:
+        db_table = 'category'
+        managed = True
+        verbose_name = 'category'
+        verbose_name_plural = 'categories'
+        ordering=['reference']
+
+class Article(models.Model):
+    
+    status_choice=(
+        ('a','Available'),
+        ('ua','Unavailable')
+    )
+    name = models.CharField(max_length=50,null=False,blank=False)
+    marque = models.CharField(max_length=50,null=True,blank=True)
+    category = models.ForeignKey(Category, on_delete=models.CASCADE,related_name="category_article")
+    number=models.BigIntegerField(blank=False,null=False)
+    image = models.ImageField(default=False)
+    color=models.CharField(max_length=15)
+    size = models.CharField(max_length=10,null=True,blank=True,default=False)
+    price = models.BigIntegerField('FCFA')
+    added=models.DateTimeField(default=timezone.now)
+    status = models.CharField(max_length=15,choices=status_choice,default="a")
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        db_table = 'article'
+        managed = True
+        verbose_name = 'article'
+        verbose_name_plural = 'articles'
+        ordering=['added']
+
+
+
+
+    
