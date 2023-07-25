@@ -48,7 +48,7 @@ class Article(models.Model):
     number=models.BigIntegerField(blank=False,null=False)
     image = models.ImageField(default=False)
     color=models.CharField(max_length=15)
-    size = models.CharField(max_length=10,null=True,blank=True,default=False)
+    size = models.CharField(max_length=10,null=True,blank=True,default="")
     price = models.BigIntegerField('FCFA')
     added=models.DateTimeField(default=timezone.now)
     status = models.CharField(max_length=15,choices=status_choice,default="a")
