@@ -3,6 +3,7 @@ from django.utils import timezone
 from django.core.validators import MaxValueValidator
 
 
+
 #convention:pour les noms des relations c'est du parent aux enfants 
 
 class Supplier(models.Model):
@@ -10,7 +11,7 @@ class Supplier(models.Model):
     surname=models.CharField(max_length=50)
     store=models.CharField(max_length=50)
     location=models.CharField(max_length=100)
-    telephone=models.BigIntegerField('+237')
+    telephone=models.BigIntegerField("+237")
     
     def __str__(self) :
         return self.name
@@ -62,6 +63,11 @@ class Article(models.Model):
         verbose_name = 'article'
         verbose_name_plural = 'articles'
         ordering=['-added']
+        
+    @property  
+    def number_check(self):
+        if self.number< self.Category.quantity:
+            return print('the quantity exceeded the amount in warehouse')
 
 
 
