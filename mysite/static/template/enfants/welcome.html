@@ -1,8 +1,9 @@
-{% include "../base.html" %}
+{% extends '../base.html' %}
 
+{% block title %} acceuil {% endblock %}
 {% block content %}
+<div class="categories">
 {% for category in categories %}
-
        <h2>{{ category.reference }}</h2>
        <div class="category">
         {% for article in articles %}
@@ -20,4 +21,8 @@
        </div>
 
 {% endfor %}
-{% endblock content %}
+<div>
+  yo bro 
+</div>
+</div>
+{% endblock %}

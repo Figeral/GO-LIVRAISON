@@ -62,7 +62,7 @@ class ShippingAddress(models.Model):
         verbose_name_plural = ("shippingAddresses")
 
     def __str__(self):
-        return self.name
+        return self.quater
 
 
 
