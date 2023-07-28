@@ -2,18 +2,29 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+   <meta http-equiv="refresh" content="">
    <title>{% block title %} {% endblock %}</title>
-   <link rel="stylesheet" href="{% static 'template/css/stylesheet.css'%}">
+   <link rel="stylesheet" href="{% static 'template/css/index.css'%}">
 </head>
 <body>
+   <div id="loader"></div>
    <header>
-      hello every one 
-    
+      <section>
+         <article class="header">
+            <form action="" method="POST">
+               <input type="text" name="seach_box" id="seach_box" placeholder="je recherche ...">
+               <input type="submit" value="search">
+            </form>
+         </article>
+      </section>
    </header>
    <nav>
-      {% block content%}{% endblock%}
+     
+         {% block content%}{% endblock%}
+         
    </nav>
    <footer>
    </footer>
+   <script src="{% static 'template/js/index.js' %}"></script>
 </body>
 </html>

@@ -47,7 +47,7 @@ class Article(models.Model):
     marque = models.CharField(max_length=50,null=True,blank=True)
     category = models.ForeignKey(Category, on_delete=models.CASCADE,related_name="category_article")
     number=models.BigIntegerField(blank=False,null=False)
-    image = models.ImageField(default=False)
+    image = models.ImageField(default=False,upload_to='image/')
     color=models.CharField(max_length=15)
     size = models.CharField(max_length=10,null=True,blank=True,default="")
     price = models.BigIntegerField('FCFA')

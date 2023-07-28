@@ -1,7 +1,12 @@
 {% extends '../base.html' %}
-
+{% load static %}
 {% block title %} acceuil {% endblock %}
-{% block content %}
+<section>
+   <!-- dynamic description like in clinton's site -->
+   <img src="{% static 'image/Screenshot from 2023-07-28 13-21-19.png' %}" alt="not loaded" width='50px' height='50px'>
+</section>
+<section>
+  {% block content %}
 <div class="categories">
 {% for category in categories %}
        <h2>{{ category.reference }}</h2>
@@ -10,7 +15,7 @@
           {% if article.category.reference == category.reference %}
             <div class="item">
                <div class="image">
-
+                  <img src="{% static 'media/image/{{article.image}}'%}" alt="">
                </div>
                <div class="description">
                   noms:{{ article.name }}, marque:{{ article.marque }}, couleur:{{ article.color }}, fournisseur:{{ article.category.supplier.name }}</li>
@@ -19,10 +24,12 @@
           {% endif %}
         {% endfor %}
        </div>
-
+       <div class="see_more">
+        <a href="{% url 'stock:see_more' category.reference  %}"> see more</a>
+      </div>
 {% endfor %}
-<div>
-  yo bro 
-</div>
+
 </div>
 {% endblock %}
+
+</section>
