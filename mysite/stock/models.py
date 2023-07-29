@@ -6,9 +6,23 @@ from django.core.validators import MaxValueValidator
 
 #convention:pour les noms des relations c'est du parent aux enfants 
 
+
+class Category(models.Model):
+    reference=models.CharField(max_length=50)
+    added=models.DateField("date",default=timezone.now)
+    def __str__(self):
+        return self.reference
+
+    class Meta:
+        db_table = 'category'
+        managed = True
+        verbose_name = 'category'
+        verbose_name_plural = 'categories'
+        ordering=['reference']
+        
 class Supplier(models.Model):
     name=models.CharField(max_length=50)
-    surname=models.CharField(max_length=50)
+    category=models.ManyToManyField(Category,related_name='category_supplier')
     store=models.CharField(max_length=50)
     location=models.CharField(max_length=100)
     telephone=models.BigIntegerField("+237")
@@ -22,20 +36,7 @@ class Supplier(models.Model):
         verbose_name_plural = 'suppliers'
         ordering=['name']
 
-class Category(models.Model):
-    reference=models.CharField(max_length=50)
-    quantity=models.BigIntegerField()
-    supplier=models.ForeignKey(Supplier,on_delete=models.CASCADE,related_name="supplier_category")
 
-    def __str__(self):
-        return self.reference
-
-    class Meta:
-        db_table = 'category'
-        managed = True
-        verbose_name = 'category'
-        verbose_name_plural = 'categories'
-        ordering=['reference']
 
 class Article(models.Model):
     
@@ -46,8 +47,9 @@ class Article(models.Model):
     name = models.CharField(max_length=50,null=False,blank=False)
     marque = models.CharField(max_length=50,null=True,blank=True)
     category = models.ForeignKey(Category, on_delete=models.CASCADE,related_name="category_article")
+    supplier = models.ForeignKey(Supplier, on_delete=models.CASCADE,related_name="supplier_article",default=False)
     number=models.BigIntegerField(blank=False,null=False)
-    image = models.ImageField(default=False,upload_to='image/')
+    image = models.ImageField(default=False,upload_to='')
     color=models.CharField(max_length=15)
     size = models.CharField(max_length=10,null=True,blank=True,default="")
     price = models.BigIntegerField('FCFA')

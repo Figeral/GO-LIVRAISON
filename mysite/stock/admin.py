@@ -5,15 +5,16 @@ from stock.models import Article,Category,Supplier
 class ArticleAdmin(admin.ModelAdmin):
      list_display=['name','marque','color','category','number','price','added','status']
      search_fields=['name','marque','color','status','added']
-     raw_id_fields=['category',]
      date_hierarchy='added'
      
 @admin.register(Category)
 class CategoryAdmin(admin.ModelAdmin):
-     list_display=['reference','quantity','supplier']
-     search_fields=['reference',]
-     raw_id_fields=['supplier']
+     list_display=['reference','added']
+     search_fields=['reference','added']
+    
+     
 @admin.register(Supplier)
 class SupplierAdmin(admin.ModelAdmin):
-     list_display=['name','surname','store','location','telephone']
-     search_fields=['name','surname','store','location']
+     list_display=['name','store','location','telephone',]
+     search_fields=['name','store','location',]
+   
