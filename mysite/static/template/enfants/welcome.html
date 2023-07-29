@@ -18,10 +18,13 @@
           {% if article.category.reference == category.reference %}
             <div class="item">
                <div class="image">
-                  <img src="{{article.image}}" alt="" >
+               
+                <img src="{{ article.image.url }}" alt="not display" width="100%" height="225" >
                </div>
                <div class="description">
-                  noms:{{ article.name }}, marque:{{ article.marque }}, couleur:{{ article.color }}, fournisseur:{{ article.category.supplier.name }}</li>
+                  <h5>noms:{{ article.name }} </h5>
+                  marque:{{ article.marque }}, couleur:{{ article.color }}, fournisseur:{{ article.supplier}}
+                </h5>
                </div>
             </div>
           {% endif %}

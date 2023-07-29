@@ -6,6 +6,8 @@ body{
     margin: 0;
     padding: 0;
     background-color: rgb(250, 245, 245);
+    width: 100%;
+   
 
 }
 a{
@@ -58,6 +60,7 @@ header section .header form input[type=submit]{
 /*  */
 /*here the nav starts  */
 nav{
+    margin: 0 5rem 0 5rem;
 
 }
 nav .description{
@@ -77,35 +80,36 @@ nav .categories .category{
 
 }
   .item{
-    height: 300px;
+    height: 350px;
     width: 280px ;
     min-width:250px ;
-    border: 2px solid #f55;
+    
+    border: 3px solid #f55;
     border-radius: 5px;
     margin: 10px;
     display: flex;
-    flex-direction: raw;
-    justify-content: center;
-    align-items: flex-end;
+    flex-direction: column;
+   
+    
     
 }
-nav .categories .category .item .image{
-    /* position:relative;
-    top: 500px;
-    left:100px;
-    width: 100%;
-    height: 256px; */
+nav .categories .category .item .image {
+    display: flex;
+    justify-content: center;
+    height:208%;
+    width: 100% ;
+    padding: 0;
+    border-bottom: 3px solid #f55;
+    border-radius: 5px;
+   
 }
-img{
-    width: 100px;
-    height: 100px;
-    position: relative;
-    right: 1110;
-    bottom: 0;
 
-}
 nav .categories .category .item .description{
+    background-color:#f55 ;
+    color: white;
     display: flex;
     flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
     
 }
