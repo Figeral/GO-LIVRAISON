@@ -8,8 +8,16 @@ from django.core.validators import MaxValueValidator
 
 
 class Category(models.Model):
+    status_choice=(
+        ('a','Available'),
+        ('ua','Unavailable')
+    )
+    
     reference=models.CharField(max_length=50)
+    slug = models.SlugField(default="")
     added=models.DateField("date",default=timezone.now)
+    status = models.CharField(max_length=15,choices=status_choice,default="a")
+
     def __str__(self):
         return self.reference
 

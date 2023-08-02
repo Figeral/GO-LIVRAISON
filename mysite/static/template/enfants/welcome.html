@@ -3,7 +3,7 @@
 
 {% block title %} acceuil {% endblock %}
 {% block content %}
- <section class="description">
+ <section class="descript">
    <!-- dynamic description like in clinton's site -->
    <img src="{% static 'image/description.png' %}" alt="not loaded" >
 
@@ -12,27 +12,32 @@
   
  <div class="categories">
 {% for category in categories %}
-       <h2>{{ category.reference }}:{{category.id}} </h2>
-       <div class="category">
-        {% for article in articles %}
-          {% if article.category.reference == category.reference %}
-            <div class="item">
+      {% if category.status == 'a' %}
+        <h2>{{ category.reference }}:{{category.id}} </h2>
+        <div class="category">
+          {% for article in category.category_article.all|slice:":4" %}
+              <div class="item">
                <div class="image">
-               
+             
                 <img src="{{ article.image.url }}" alt="not display" width="100%" height="225" >
                </div>
                <div class="description">
-                  <h5>noms:{{ article.name }} </h5>
-                  marque:{{ article.marque }}, couleur:{{ article.color }}, fournisseur:{{ article.supplier}}
-                </h5>
+                  <h4>noms:{{ article.name }} </h4>
+                  marque:{{ article.marque }} prix:{{article.price}}FCFA
+                  <div class="addtocard">
+                    <button name="addtocart" id="addtocart"> ajouter au panier</button>
+                  </div>
                </div>
-            </div>
-          {% endif %}
-        {% endfor %}
-       </div>
-       <div class="see_more">
-        <a href="{% url 'stock:see_more' category.reference  %}"> see more</a>
+             </div>
+           
+       {% endfor %}
       </div>
+      <div id="see_more" class="see_more">
+          <a href="{% url 'stock:see_more' category.slug  %}">
+             see_more
+          </a>
+       </div>
+      {% endif %}
 {% endfor %}
 
 </div>

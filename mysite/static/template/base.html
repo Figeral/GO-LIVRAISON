@@ -11,12 +11,12 @@
    <div id="loader"></div>
    <header>
       <section>
-         <article class="header">
-            <form action="" method="POST">
-               <input type="text" name="seach_box" id="seach_box" placeholder="je recherche ...">
+         <div class="header">
+            <form action="{% url 'stock:search_item' %}" method="GET">
+               <input type="text" name="query" id="search_box" placeholder="je recherche..." >
                <input type="submit" value="search">
             </form>
-         </article>
+         </div>
       </section>
    </header>
    <nav>

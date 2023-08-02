@@ -1,12 +1,16 @@
 
 body{
-    background-color: white;
-    font-family: -apple-system, 'Open Sans', 'Helvetica Neue', sans-serif;
+    
+    width: 100%;
+    font-family:'Arial', Helvetica;
     font-size: medium;
-    margin: 0;
+    margin: 0  ;
     padding: 0;
     background-color: rgb(250, 245, 245);
-    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
    
 
 }
@@ -18,23 +22,25 @@ header{
     width: 100%;
     height: 7rem;
     border-bottom: 1px solid black;
+    
 }
 header section{
     display: flex;
     height: 100%;
     width: 100%;
 }
-header section article {
+header section .header{
     width: 100%;
 }
 
 header section .header form{
-    
+    width: 500px;
     display: flex;
     flex-direction: raw;
     position: relative;
     top: 2rem;
-    left:15% ;
+    left:20% ;
+    margin: 0px;
 }
 header section .header form input{
     height: 50px;
@@ -60,36 +66,41 @@ header section .header form input[type=submit]{
 /*  */
 /*here the nav starts  */
 nav{
-    margin: 0 5rem 0 5rem;
-
+    width: 100%;
+    height: 180vh;
+     
 }
-nav .description{
-    height: 400px;
+nav .descript{  
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
+    
 }
 nav .description img{
     width: 350px;
     height: 350px;
 }
-nav .categories .category{
-    
-    display: flex;
-
+nav .categories{
+    position: relative;
+    top: 0;
+    left: 2.5rem;
 }
+nav .categories .category{
+    display: flex;
+}
+
   .item{
     height: 350px;
     width: 280px ;
     min-width:250px ;
-    
     border: 3px solid #f55;
     border-radius: 5px;
     margin: 10px;
     display: flex;
     flex-direction: column;
-   
+    font-family: 'sans-serif';
+    margin-bottom: 5px;
     
     
 }
@@ -105,6 +116,8 @@ nav .categories .category .item .image {
 }
 
 nav .categories .category .item .description{
+    height: 400px;
+    width: 100%;
     background-color:#f55 ;
     color: white;
     display: flex;
@@ -113,3 +126,10 @@ nav .categories .category .item .description{
     align-items: center;
     
 }
+nav .categories .category .item .description #addtocart{
+    background-color: rgb(250, 245, 245);
+    height: 25px;
+    border: 1px solid #999;
+    border-radius: 5px;
+}
+ 

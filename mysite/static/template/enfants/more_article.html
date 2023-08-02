@@ -1,0 +1,22 @@
+{% extends '../base.html' %}
+{% block content %}
+      <div class="categories">
+         <h2>{{category.reference}}</h2>
+         <div class="category">
+            {% for article in articles %}
+             
+            <div class="item">
+             <div class="image">
+           
+              <img src="{{ article.image.url }}" alt="not display" width="100%" height="225" >
+             </div>
+             <div class="description">
+                <h5>noms:{{ article.name }} </h5>
+                marque:{{ article.marque }}, couleur:{{ article.color }}, fournisseur:{{ article.supplier}}
+             </div>
+           </div>
+              
+            {% endfor %}
+         </div>
+      </div>
+{% endblock %}
