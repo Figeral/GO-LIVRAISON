@@ -8,8 +8,16 @@ from django.core.validators import MaxValueValidator
 
 
 class Category(models.Model):
+    status_choice=(
+        ('a','Available'),
+        ('ua','Unavailable')
+    )
+    
     reference=models.CharField(max_length=50)
+    slug = models.SlugField(default="")
     added=models.DateField("date",default=timezone.now)
+    status = models.CharField(max_length=15,choices=status_choice,default="a")
+
     def __str__(self):
         return self.reference
 
@@ -49,7 +57,7 @@ class Article(models.Model):
     category = models.ForeignKey(Category, on_delete=models.CASCADE,related_name="category_article")
     supplier = models.ForeignKey(Supplier, on_delete=models.CASCADE,related_name="supplier_article",default=False)
     number=models.BigIntegerField(blank=False,null=False)
-    image = models.ImageField(default=False,upload_to='')
+    image = models.ImageField(default=False,upload_to='image')
     color=models.CharField(max_length=15)
     size = models.CharField(max_length=10,null=True,blank=True,default="")
     price = models.BigIntegerField('FCFA')

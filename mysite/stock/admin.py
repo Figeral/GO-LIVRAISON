@@ -9,7 +9,8 @@ class ArticleAdmin(admin.ModelAdmin):
      
 @admin.register(Category)
 class CategoryAdmin(admin.ModelAdmin):
-     list_display=['reference','added']
+     list_display=['reference','slug','added','status']
+     prepopulated_fields={'slug':('reference',)}
      search_fields=['reference','added']
     
      
