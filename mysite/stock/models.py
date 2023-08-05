@@ -15,7 +15,7 @@ class Category(models.Model):
     
     reference=models.CharField(max_length=50)
     slug = models.SlugField(default="")
-    added=models.DateField("date",default=timezone.now)
+    added=models.DateField("date",auto_now_add=True)
     status = models.CharField(max_length=15,choices=status_choice,default="a")
 
     def __str__(self):
@@ -61,7 +61,7 @@ class Article(models.Model):
     color=models.CharField(max_length=15)
     size = models.CharField(max_length=10,null=True,blank=True,default="")
     price = models.BigIntegerField('FCFA')
-    added=models.DateTimeField(default=timezone.now)
+    added=models.DateTimeField(auto_now_add=True)
     status = models.CharField(max_length=15,choices=status_choice,default="a")
 
     def __str__(self):

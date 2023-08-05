@@ -2,6 +2,7 @@ from django.shortcuts import render,get_object_or_404,redirect
 from django.contrib.auth.decorators import login_required
 from stock.models import Supplier,Category,Article
 from django.core.paginator import Paginator,EmptyPage,PageNotAnInteger
+from django.db.models import Q
 
 #showing all category  with a paginator to show to show more
 def all_category(request):
@@ -23,15 +24,31 @@ def see_more(request,cat_ref):
                                                                 'category':category})
 
 #detail on given article
-# def detail(request,article_id):
-#     return
+def detail(request,article_id):
+    article=Article.objects.get(id=article_id)
+    cat=article.category
+    category=cat.category_article.all()
+    return render(request,'template/enfants/detail_article.html',{
+        'article':article,
+        'category':category,
+    })
 
 def search_item(request):
     if request.method == "GET":
         querry=request.GET.get('query')
-        articles=Article.objects.filter(name__icontains= querry)
-        return render(request,'template/enfants/search.html',{
-        'articles':articles,
-        })
+        if querry:
+          articles = Article.objects.filter(
+          Q(name__icontains=querry) |
+          Q(marque__icontains=querry) |
+          Q(category__reference__icontains=querry) |
+          Q(supplier__name__icontains=querry) |
+          Q(color__icontains=querry)
+            )
+          return render(request,'template/enfants/search.html',{
+          'articles':articles,
+          })
+        else :
+            print ('no information to display')
+            return render(request,'template/enfants/search.html',{})
         
     

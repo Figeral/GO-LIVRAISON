@@ -31,7 +31,7 @@ class Customer(models.Model):
 
 class Order(models.Model):
     command=models.ForeignKey(Customer,on_delete=models.SET_NULL,related_name='customer_order',null=True)
-    date = models.DateField(default=timezone.now)
+    date = models.DateField(auto_now_add=True)
     complete = models.BooleanField(default=False)
     
 
@@ -42,7 +42,7 @@ class Order(models.Model):
     def __str__(self):
         return str(self.id)
 class ArticleOrder(models.Model):
-    command=models.ForeignKey(Order,on_delete=models.SET_NULL,related_name='order_articleorder',null=True)
+    order=models.ForeignKey(Order,on_delete=models.SET_NULL,related_name='order_articleorder',null=True)
     article=models.ForeignKey(Article,on_delete=models.SET_NULL,related_name='article_articleorder',null=True)
     quantity = models.IntegerField()
     

@@ -11,7 +11,7 @@ class ArticleAdmin(admin.ModelAdmin):
 class CategoryAdmin(admin.ModelAdmin):
      list_display=['reference','slug','added','status']
      prepopulated_fields={'slug':('reference',)}
-     search_fields=['reference','added']
+     search_fields=['reference','added','status']
     
      
 @admin.register(Supplier)
