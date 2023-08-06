@@ -142,9 +142,6 @@ nav .categories .category .item .description #addtocart{
  nav .categories .category .item .description #addtocart span{
     margin: 2px;
 } 
-nav .categories .category .item .description #addtocart svg path{
-    color: #f50;
-}
 nav .categories .category .item .description #addtocart:hover{
     transform: translateY(-2px);
     background-color: rgb(223, 182, 182);

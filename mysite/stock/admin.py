@@ -3,7 +3,7 @@ from stock.models import Article,Category,Supplier
 
 @admin.register(Article)
 class ArticleAdmin(admin.ModelAdmin):
-     list_display=['name','marque','color','category','number','price','added','status']
+     list_display=['name','marque','color','number','price','added','status']
      search_fields=['name','marque','color','status','added']
      date_hierarchy='added'
      
