@@ -25,6 +25,11 @@ header section{
     height: 100%;
     width: 100%;
 }
+header section .title{
+    display: flex;
+    align-items: center;
+   
+}
 header section .header{
     width: 100%;
 }
@@ -35,7 +40,7 @@ header section .header form{
     flex-direction: raw;
     position: relative;
     top: 2rem;
-    left:20% ;
+    left:10% ;
     margin: 0px;
 }
 header section .header form input{
@@ -55,31 +60,58 @@ header section .header form input[type=submit]{
     color: #f55;
     border-radius: 7px;
     font-size: 15px;
+    transition: hover 0.3 ease;
 }
+header section .header form input[type=submit]:hover{
+    background-color: #f55;
+    color: #fff;
+}
+
 /* thing about the responsiveness here */
 /*  */
+header section .cart{
+    display: flex;
+    align-items: center;
+    position: relative;
+   
+    left:-10% ;
+    margin: 0px;
+}
+header section .cart svg{
+   transform: rotateY(180deg);
+}
 /*here the nav starts  */
 nav{
     width: 100%;
     height: 180vh;
 }
-nav .descript{  
+.descript{  
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-nav .description img{
+ .first_description{
+    width: 350px;
+    height: 150px;
+}
+.description image{
     width: 350px;
     height: 350px;
-}
-nav .categories{
-    position: relative;
-    top: 0;
-    left: 2.5rem;
-}
-nav .categories .category{
     display: flex;
+    align-items: center;
+}
+.categories{
+    padding: 2rem;
+}
+.categories .elt{
+    border-bottom: 0.5px solid #000;
+    padding-bottom:3rem ;
+    padding-top: 1.5rem;
+}
+.categories .category{
+    display: flex;
+    justify-content: flex-start;
 }
   .item{
     height: 350px;
@@ -92,18 +124,19 @@ nav .categories .category{
     flex-direction: column;
     font-family: 'sans-serif';
     margin-bottom: 5px;  
+    cursor: pointer;
 }
-nav .categories .category .item .image {
+.categories .category .item .image {
     display: flex;
     justify-content: center;
+    align-items: center;
     height:208%;
     width: 100% ;
     padding: 0;
     border-bottom: 3px solid #f55;
     border-radius: 5px;
 }
-
-nav .categories .category .item .description{
+.categories .category .item .description{
     height: 400px;
     width: 100%;
     background-color:#f55 ;
@@ -114,6 +147,7 @@ nav .categories .category .item .description{
     align-items: center;
 }
 h4{
+    
     display: flex;
     justify-content: center;
     margin: 3px;
@@ -127,7 +161,15 @@ h4{
     margin-top: 5px;
     margin-left: 5px;
 }
-nav .categories .category .item .description #addtocart{
+#see_more a{
+    display:flex;
+    align-items: center;
+    text-decoration: underline;
+}
+#see_more span{
+    margin-left: 3px;
+}
+.categories .category .item .description #addtocart{
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -138,13 +180,14 @@ nav .categories .category .item .description #addtocart{
     color: #f50;
     border-radius: 5px;
     transition: transform 0.2s ease;
+    
 }
- nav .categories .category .item .description #addtocart span{
+.categories .category .item .description #addtocart span{
     margin: 2px;
 } 
-nav .categories .category .item .description #addtocart:hover{
+.categories .category .item .description #addtocart:hover{
     transform: translateY(-2px);
     background-color: rgb(223, 182, 182);
     color: white;
+    cursor: pointer;
 }
- 

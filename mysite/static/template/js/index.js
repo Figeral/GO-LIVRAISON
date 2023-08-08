@@ -1,14 +1,22 @@
-const items = document.querySelectorAll('.item');
-items.forEach(item => {
-  item.addEventListener('click', function(e) {
-    if (e.target.classList.contains('addtocart')) {
-      const name = item.querySelector('.description #name').textContent;
-      const marque = item.querySelector('.description #marque').textContent;
-      const price = item.querySelector('.description #price').textContent;
-      console.log('name:', name);
-      console.log('marque:', marque);
-      console.log('price:', price);
-      console.log('action:', e.target);
-    }
-  });
-});
+const btn_cart = document.getElementsByClassName('addtocart');
+for (let i = 0; i < btn_cart.length; i++) {
+    btn_cart[i].addEventListener('click', handclick);
+}
+
+function handclick(e) {
+    
+        const btn = e.target;
+        const description = btn.closest('.description');
+        const name = description.querySelector('#name');
+        const marque = description.querySelector('#marque');
+        const price = description.querySelector('#price');
+        console.log('name:', name.textContent);
+        console.log('marque:', marque.textContent);
+        console.log('price:', price.textContent);
+        console.log('action:', btn);
+        console.log('parentElement:', description);
+}
+const loader=document.getElementById('loader')
+loader.addEventListener('load',function(e){
+    loader.style="display:none;"
+})

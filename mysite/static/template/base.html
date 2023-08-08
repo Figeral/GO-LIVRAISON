@@ -5,31 +5,39 @@
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>{% block title %} {% endblock %}</title>
-   <link rel="stylesheet" href="{% static 'template/css/inde.css'%}">
+   <link rel="stylesheet" href="{% static 'template/css/index.css'%}">
    
 <body>
-   <div id="loader"></div>
+   
    <header>
       <section>
-         <h2>GO LIVRAISON</h2>
+         <div class="title">
+            <img src="{% static 'image/macaurad.png' %}" height="165px" width="165px" alt="not loaded" >
+         </div>
+         
          <div class="header">
             <form action="{% url 'stock:search_item' %}" method="GET">
                <input type="text" name="query" id="search_box" placeholder="je recherche..." >
                <input type="submit" value="search" id="search">
             </form>
          </div>
+         <div class="login">
+            <form action="">
+
+            </form>
+         </div>
          <div class="cart">
-            <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100"  viewBox="0 0 24 24"><path d="M10 19.5c0 .829-.672 1.5-1.5 1.5s-1.5-.671-1.5-1.5c0-.828.672-1.5 1.5-1.5s1.5.672 1.5 1.5zm3.5-1.5c-.828 0-1.5.671-1.5 1.5s.672 1.5 1.5 1.5 1.5-.671 1.5-1.5c0-.828-.672-1.5-1.5-1.5zm6.305-15l-3.432 12h-10.428l-3.777-9h-2.168l4.615 11h13.239l3.474-12h1.929l.743-2h-4.195z"/></svg>
+            <a href="{% url 'stock:cart' %}">
+               <svg xmlns="http://www.w3.org/2000/svg" height="3rem" width="3rem" viewBox="0 0 640 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><style>svg{fill:#f55}</style><path d="M36.8 192H603.2c20.3 0 36.8-16.5 36.8-36.8c0-7.3-2.2-14.4-6.2-20.4L558.2 21.4C549.3 8 534.4 0 518.3 0H121.7c-16 0-31 8-39.9 21.4L6.2 134.7c-4 6.1-6.2 13.2-6.2 20.4C0 175.5 16.5 192 36.8 192zM64 224V384v80c0 26.5 21.5 48 48 48H336c26.5 0 48-21.5 48-48V384 224H320V384H128V224H64zm448 0V480c0 17.7 14.3 32 32 32s32-14.3 32-32V224H512z"/></svg>
+               <span id="count"></span>
+            </a>
          </div>
       </section>
+      <div id="loader"></div>
    </header>
-   <nav>
-     
-         {% block content%}{% endblock%}
-         
-   </nav>
-   <footer>
-   </footer>
+         {% block content%}
+
+         {% endblock%}
    <script  type="module" src="{% static 'template/js/index.js' %}" ></script>
 </body> 
 </html>

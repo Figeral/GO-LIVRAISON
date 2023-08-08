@@ -51,4 +51,6 @@ def search_item(request):
             print ('no information to display')
             return render(request,'template/enfants/search.html',{})
         
-    
+def cart(request):
+    articles=Article.objects.all()
+    return render(request,'template/enfants/cart.html',{'articles':articles})

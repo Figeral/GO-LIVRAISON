@@ -3,38 +3,43 @@
 
 {% block title %} acceuil {% endblock %}
 {% block content %}
- <section class="descript">
-   <!-- dynamic description like in clinton's site -->
-   <img src="{% static 'image/description.png' %}" alt="not loaded" >
-
- </section>
- <section>
-  
-<div class="categories">
-{% for category in categories %}
-      {% if category.status == 'a' %}
-        <h2>{{ category.reference }}:{{category.id}} </h2>
+ <nav>
+  <section class="descript">
+    <!-- <div class="first_desciption">
+     Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi ut, voluptates eius reprehenderit, quam voluptas aspernatur quia eum excepturi ratione quod animi mollitia asperiores blanditiis cupiditate? Fugiat, quasi iste! Accusamus!
+    </div> -->
+     <div class="image">
+      <img src="{% static 'image/1.png' %}" height="400px" width="500px" alt="not loaded" >
+     </div>
+     <!-- <div class="first_descripton">
+     Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim, qui sunt. Culpa obcaecati quas molestiae eum impedit ipsum atque distinctio deserunt porro! Voluptatibus nulla in veniam optio cumque nihil hic?
+     </div> -->
+   </section>
+   <section>
+    
+  <div class="categories">
+  {% for category in categories %}
+        {% if category.status == 'a' %}
+      <div class="elt">
+        <h2>{{ category.reference }} </h2>
          <div class="category">
           {% for article in category.category_article.all|slice:":4" %}
            {% if article.status == 'a' %}
-              <!-- <a href="{% url 'stock:detail' article.id%}"> -->
+              <a href="{% url 'stock:detail' article.id%}">
                 <div class="item">
                       <div class="image">
-                          <img src="{{ article.image.url }}" alt="not display" width="100%" height="225" >
+                          <img src="{{ article.image.url }}" alt="not display" width="280" height='225' />
                       </div>
                     <div class="description">
                        <h4>noms:<span id="name" name="name">{{ article.name }}</span> </h4>
                        <div class="info">
                          <li>Marque:<span id="marque" name="marque">{{ article.marque }}</span></li> 
-                         <li>Prix:<span id="price" name="price">{{article.price}}</span>FCFA</li>
+                         <li>Prix:<span id="price" name="price">{{article.price}}</span> XAF</li>
                        </div>
-                      
-                       <div class="addtocart-div">
                          <button  name="addtocart" class="addtocart" id="addtocart" > 
                           <span>ajouter</span>
                           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M10 19.5c0 .829-.672 1.5-1.5 1.5s-1.5-.671-1.5-1.5c0-.828.672-1.5 1.5-1.5s1.5.672 1.5 1.5zm3.5-1.5c-.828 0-1.5.671-1.5 1.5s.672 1.5 1.5 1.5 1.5-.671 1.5-1.5c0-.828-.672-1.5-1.5-1.5zm6.305-15l-3.432 12h-10.428l-3.777-9h-2.168l4.615 11h13.239l3.474-12h1.929l.743-2h-4.195z" fill="#777"/></svg>
                          </button>
-                       </div>
                     </div>
                 </div>
               </a>
@@ -43,13 +48,22 @@
         </div>
         <div id="see_more" class="see_more">
           <a href="{% url 'stock:see_more' category.slug  %}">
-             see_more
+             voir plus
+             <span class="arrow">
+              <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"fill="#f50"></svg>
+             </span>
           </a>
         </div>
+      </div>
       {% endif %}
-{% endfor %}
-
-</div>
+  {% endfor %}
+  
+  </div>
+  </section>
+ </nav>
+ <footer>
+  <!-- hello world -->
+ </footer>
 {% endblock %}
 
-</section>
+
