@@ -3,16 +3,11 @@ from django.contrib.auth.decorators import login_required
 from stock.models import Supplier,Category,Article
 from django.core.paginator import Paginator,EmptyPage,PageNotAnInteger
 from django.db.models import Q
-
 #showing all category  with a paginator to show to show more
 def all_category(request):
     categories=Category.objects.all()
-    articles=Article.objects.filter(status='ua')
-
     return render(request,'template/enfants/welcome.html',{
-        'categories':categories,
-        'articles':articles,
-        
+        'categories':categories,    
     })
 
 
@@ -27,6 +22,8 @@ def see_more(request,cat_ref):
 def detail(request,article_id):
     article=Article.objects.get(id=article_id)
     cat=article.category
+    # sup=article.supplier.name
+    # supplier=Supplier.objects.get(name=sup)
     category=cat.category_article.all()
     return render(request,'template/enfants/detail_article.html',{
         'article':article,

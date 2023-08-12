@@ -16,7 +16,3 @@ function handclick(e) {
         console.log('action:', btn);
         console.log('parentElement:', description);
 }
-const loader=document.getElementById('loader')
-loader.addEventListener('load',function(e){
-    loader.style="display:none;"
-})

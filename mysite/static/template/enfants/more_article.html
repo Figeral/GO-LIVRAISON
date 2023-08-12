@@ -1,11 +1,15 @@
 {% extends '../base.html' %}
+{% block title %}
+  {{category.reference}}
+{% endblock title %}
 {% block content %}
 <div class="categories">
            <h2>{{ category.reference }}</h2>
-            <div class="category">
+          <div class="category">
+            
              {% for article in category.category_article.all %}
               {% if article.status == 'a' %}
-              <!-- <a href="{% url 'stock:detail' article.id%}"> -->
+               <a href="{% url 'stock:detail' article.id%}">
                 <div class="item">
                       <div class="image">
                           <img src="{{ article.image.url }}" alt="not display" width="100%" height="225" >
@@ -22,9 +26,10 @@
                          </button>
                     </div>
                 </div>
-             
+               </a>
                 {% endif %}
              {% endfor %}
-        </div>          
+            
+       </div>          
 </div> 
 {% endblock %}

@@ -1,4 +1,5 @@
 from django.db import models
+from PIL import Image
 from django.utils import timezone
 from django.core.validators import MaxValueValidator
 
@@ -59,7 +60,7 @@ class Article(models.Model):
     number=models.BigIntegerField(blank=False,null=False)
     image = models.ImageField(default=False,upload_to='image')
     color=models.CharField(max_length=15)
-    size = models.CharField(max_length=10,null=True,blank=True,default="")
+    # size = models.CharField(max_length=10,null=True,blank=True,default="")
     price = models.BigIntegerField('FCFA')
     added=models.DateTimeField(auto_now_add=True)
     status = models.CharField(max_length=15,choices=status_choice,default="a")
@@ -79,7 +80,10 @@ class Article(models.Model):
         if self.number< self.Category.quantity:
             return print('the quantity exceeded the amount in warehouse')
 
-
+def resize(image_path,new_width,new_heigth):
+        image=Image.open(image_path)
+        image.thumbnail((new_width,new_heigth),image.ANTIALAS)
+        return image.save(image_path)
 
 
     

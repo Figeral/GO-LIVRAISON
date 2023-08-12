@@ -5,10 +5,9 @@
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>{% block title %} {% endblock %}</title>
-   <link rel="stylesheet" href="{% static 'template/css/index.css'%}">
-   
+   <link rel="stylesheet" href="{% static 'template/css/inde.css'%}">
+   <link rel="stylesheet" href="{% static 'template/css/index_2.css'%}">
 <body>
-   
    <header>
       <section>
          <div class="title">
@@ -17,7 +16,7 @@
          
          <div class="header">
             <form action="{% url 'stock:search_item' %}" method="GET">
-               <input type="text" name="query" id="search_box" placeholder="je recherche..." >
+               <input type="search" name="query" id="search_box" placeholder="je recherche..." >
                <input type="submit" value="search" id="search">
             </form>
          </div>
@@ -33,11 +32,15 @@
             </a>
          </div>
       </section>
-      <div id="loader"></div>
    </header>
-         {% block content%}
+         <nav>
+            {% block content%}
 
-         {% endblock%}
+            {% endblock%}
+         </nav>
+   <footer>
+      <!-- hello world -->
+   </footer>
    <script  type="module" src="{% static 'template/js/index.js' %}" ></script>
 </body> 
 </html>
