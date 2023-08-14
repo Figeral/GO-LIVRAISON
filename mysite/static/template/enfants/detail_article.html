@@ -8,16 +8,20 @@
         <img src="{{article.image.url}}" height="390" width="360" alt="">
     </div>
     <div class="article_detail">
-       <li>Noms:{{article.name}}</li>
-       <li>Marque:{{article.marque}}</li>
-       <li>Couleur:{{article.color}}</li>
-       <li>Category:{{article.category}}</li>
-       <li>Prix:{{article.price}}</li>
-       <li>Fournisseur:{{article.supplier.name}}</li>
-       <li>Store:{{article.supplier.store}}</li>
-       <li>Contact:{{article.supplier.location}}</li>
-       <li>Marque:{{article.supplier.telephone}}</li>
+       <li>Noms:  {{article.name}}</li>
+       <li>Couleur:  {{article.color}}</li>
+       <li>Marque:  {{article.marque}}</li>
+       <li>Category:  {{article.category}}</li>
+       <li>Prix:  {{article.price}} FCFA</li>
+       <li>Fournisseur:  {{article.supplier.name}}</li>
+       <li>Boutique:  {{article.supplier.store}}</li>
+       <li>Localisation:  {{article.supplier.location}}</li>
+       <li>Contact: +237 {{article.supplier.telephone}}</li>
+       <button> adding to cart </button>
     </div>
+ </div>
+ <div class="similar" style="margin: 2.2rem; ">
+  <h2>Article similaire</h2>
  </div>
  <div class="box">
      {% for arti in category %}

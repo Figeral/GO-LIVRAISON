@@ -1,5 +1,7 @@
 
+
 body{
+
     width: 100%;
     min-height: 100vh;
     display: flex;
@@ -15,50 +17,46 @@ a{
    text-decoration: none; 
    
 }
-header{
-    min-width: 100%;
-    height: 7rem;
-    border-bottom: 1px solid #f55;
-    position: sticky;
-    top: 0;
-    left: 0;
-    background-color:rgb(250, 245, 245) ;
+li{
+    list-style: none;
 }
-header section{
+header{
+    width: 100%;
+    height: 7.5rem;
+    background-color: rgb(250, 230, 230);
+    display: flex;
+    align-items: center;
+}
+header div{
     display: flex;
     height: 100%;
-    width: 100%;
+    width: inherit;
 }
-header section .title{
+header div .title{
     display: flex;
     align-items: center;
    
 }
-header section .header{
-    width: 100%;
-}
 
-header section .header form{
+header div  form{
     width: 500px;
     display: flex;
     flex-direction: raw;
-    position: relative;
-    top: 2rem;
-    left:10% ;
-    margin: 0px;
+    justify-content: center;
+   
 }
-header section .header form input{
-    height: 50px;
+header div  form input{
+    height: 48px;
     width: 400px;
     border: 0.7px solid #f55;
     margin-left: 1px;
     border-radius: 10px;
     font-size: 20px;
 }
-header section .header form input[type=submit]{
+header div form input[type=submit]{
     height: 46px;
     width: 56px;
-    margin-left: 20px;
+    margin-left: 8px;
     background-color: rgb(250, 245, 245);
     border:2px solid #f55;
     color: #f55;
@@ -66,28 +64,28 @@ header section .header form input[type=submit]{
     font-size: 15px;
     transition: hover 0.3 ease;
 }
-header section .header form input[type=submit]:hover{
+header div  form input[type=submit]:hover{
     background-color: #f55;
     color: #fff;
 }
 
 /* thing about the responsiveness here */
 /*  */
-header section .cart{
+header div .login{
+    width: 5%;
+}
+header div .cart{
     display: flex;
     align-items: center;
-    position: relative;
    
-    left:-10% ;
-    margin: 0px;
 }
-header section .cart svg{
+header div .cart svg{
    transform: rotateY(180deg);
 }
 /*here the nav starts  */
 nav{
     width: 100%;
-   flex-grow: 1;
+    flex-grow: 1;
 }
 .descript{  
     width: 100%;
@@ -106,28 +104,33 @@ nav{
     align-items: center;
 }
 .categories{
-    padding: 2rem;
+    padding-left: 3rem;
+    padding-right: 3rem;
+   
 }
 .categories .elt{
-    padding-bottom:1.1rem ;
-    padding-top: 1.7rem;
-    
+    border-bottom: 1px solid #666;
+    padding-top: 2rem;
+    padding-bottom:4rem ;
 }
+
 .box{
-    margin-left: 0.5rem;
+    padding: 0.7rem  2rem 2rem 2rem;
     max-width: 100%;
     display: grid;
     grid-template-columns: repeat(4,1fr);
-    grid-gap: 10px;
+    
 }
 .category{
    padding-left: 0.5rem;
    display: grid;
    grid-template-columns: repeat(4,1fr);
+   
 }
+
   .item{
     height: 350px;
-    width: 280px ;
+    width: 280px;
     min-width:250px ;
     border: 3px solid #f55;
     border-radius: 5px;
@@ -143,7 +146,7 @@ nav{
     justify-content: center;
     align-items: center;
     height:208%;
-    width: inherit ;
+    width: 100% ;
     padding: 0;
     border-bottom: 3px solid #f55;
     border-radius: 5px;
@@ -185,7 +188,6 @@ h4{
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    background-color: rgb(250, 245, 245);
     height: 35px;
     width: 90px;
     border: 1px solid #f50;
@@ -204,6 +206,16 @@ h4{
     cursor: pointer;
 }
 .article_description{
-    display: grid;
-    margin-left: 4%;
+    display: flex;
+    margin-left: 8%;
+    margin-top: 1%;
+}
+.article_detail{
+    margin-left: 2.5rem;
+    font-weight: bold;
+    font-size: large;
+    font-family: sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
 }

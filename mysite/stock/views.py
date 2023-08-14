@@ -22,8 +22,6 @@ def see_more(request,cat_ref):
 def detail(request,article_id):
     article=Article.objects.get(id=article_id)
     cat=article.category
-    # sup=article.supplier.name
-    # supplier=Supplier.objects.get(name=sup)
     category=cat.category_article.all()
     return render(request,'template/enfants/detail_article.html',{
         'article':article,

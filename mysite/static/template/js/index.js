@@ -1,3 +1,12 @@
+let img=document.getElementById("go")
+let header=document.getElementsByTagName('header')[0]
+document.addEventListener('scroll',function(e){
+    img.style="display:block;"
+    
+})
+console.log(window.pageYOffset);
+console.log(header.offsetTop);
+
 const btn_cart = document.getElementsByClassName('addtocart');
 for (let i = 0; i < btn_cart.length; i++) {
     btn_cart[i].addEventListener('click', handclick);

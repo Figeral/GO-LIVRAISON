@@ -47,3 +47,17 @@ mysite/stock/migrations/__pycache__/0022_alter_article_added_alter_category_adde
 mysite/stock/migrations/__pycache__/__init__.cpython-310.pyc
 mysite/stock/migrations/__pycache__/__init__.cpython-311.pyc
 hellobro
+*pyc
+*.pyc
+mysite/stock/__pycache__/admin.cpython-310.pyc
+mysite/stock/__pycache__/admin.cpython-311.pyc
+mysite/stock/__pycache__/apps.cpython-310.pyc
+mysite/stock/__pycache__/apps.cpython-311.pyc
+mysite/stock/__pycache__/__init__.cpython-310.pyc
+mysite/stock/__pycache__/__init__.cpython-311.pyc
+mysite/stock/__pycache__/models.cpython-310.pyc
+mysite/stock/__pycache__/models.cpython-311.pyc
+mysite/stock/__pycache__/urls.cpython-310.pyc
+mysite/stock/__pycache__/urls.cpython-311.pyc
+mysite/stock/__pycache__/views.cpython-310.pyc
+mysite/stock/__pycache__/views.cpython-311.pyc

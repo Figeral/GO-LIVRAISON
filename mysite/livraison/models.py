@@ -1,5 +1,5 @@
 from django.db import models
-from stock.models import Article
+from stock.models import *
 from django.utils import timezone
 
 class User(models.Model):
@@ -28,9 +28,9 @@ class Customer(models.Model):
 
     def __str__(self):
         return self.name
-
+#cart representation
 class Order(models.Model):
-    command=models.ForeignKey(Customer,on_delete=models.SET_NULL,related_name='customer_order',null=True)
+    customer=models.ForeignKey(Customer,on_delete=models.SET_NULL,related_name='customer_order',null=True)
     date = models.DateField(auto_now_add=True)
     complete = models.BooleanField(default=False)
     
@@ -41,16 +41,30 @@ class Order(models.Model):
 
     def __str__(self):
         return str(self.id)
+    @property
+    def grandtotal(self):
+        cartitems=self.order_articleorder.all()
+        total=sum([ArticleOrder.subtotal for item in cartitems])
+        return total
+    
+    @property
+    def cartquantity(self):
+        cartitems=self.order_articleorder.all()
+        total=sum([ArticleOrder.quantity for item in cartitems])
+        return total
+        
 class ArticleOrder(models.Model):
     order=models.ForeignKey(Order,on_delete=models.SET_NULL,related_name='order_articleorder',null=True)
     article=models.ForeignKey(Article,on_delete=models.SET_NULL,related_name='article_articleorder',null=True)
     quantity = models.IntegerField()
-    
-    
+
     class Meta:
         verbose_name = ("Article_Order")
         verbose_name_plural = ("Article_Orders")
-
+    @property
+    def subtotal(self):
+        total=self.quantity*self.article.price
+        return total
 class ShippingAddress(models.Model):
     customer=models.ForeignKey(Customer,on_delete=models.SET_NULL,related_name='customer_sa',null=True)
     command=models.ForeignKey(Order,on_delete=models.SET_NULL,related_name='Order_sa',null=True)
