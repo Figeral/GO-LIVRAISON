@@ -184,7 +184,7 @@ h4{
 #see_more span{
     margin-left: 3px;
 }
- .item .description #addtocart{
+  #addtocart{
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -196,10 +196,10 @@ h4{
     transition: transform 0.2s ease;
     
 }
-.description #addtocart span{
+ #addtocart span{
     margin: 2px;
 } 
- .item .description #addtocart:hover{
+ #addtocart:hover{
     transform: translateY(-2px);
     background-color: rgb(223, 182, 182);
     color: white;

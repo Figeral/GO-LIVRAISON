@@ -3,6 +3,7 @@ from django.contrib.auth.decorators import login_required
 from stock.models import Supplier,Category,Article
 from django.core.paginator import Paginator,EmptyPage,PageNotAnInteger
 from django.db.models import Q
+from django.http import JsonResponse
 #showing all category  with a paginator to show to show more
 def all_category(request):
     categories=Category.objects.all()
@@ -49,3 +50,6 @@ def search_item(request):
 def cart(request):
     articles=Article.objects.all()
     return render(request,'template/enfants/cart.html',{'articles':articles})
+
+def updatecart(request):
+    return JsonResponse("find it's working", safe=False)

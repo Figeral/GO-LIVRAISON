@@ -1,27 +1,48 @@
-let img=document.getElementById("go")
-let header=document.getElementsByTagName('header')[0]
-document.addEventListener('scroll',function(e){
-    img.style="display:block;"
-    
+let img = document.getElementById("go")
+let header = document.getElementsByTagName('header')[0]
+document.addEventListener('scroll', function (e) {
+    img.style = "display:block;"
+
 })
-console.log(window.pageYOffset);
-console.log(header.offsetTop);
 
-const btn_cart = document.getElementsByClassName('addtocart');
-for (let i = 0; i < btn_cart.length; i++) {
-    btn_cart[i].addEventListener('click', handclick);
+let detail = document.querySelector('.article_detail')
+const btn_cart = detail.querySelector('.addtocart');
+    btn_cart.addEventListener('click', function (e) {
+        const action=e.target.dataset.action
+        const article={
+             id:detail.querySelectorAll('li > span')[0].innerText,
+             name:detail.querySelectorAll('li > span')[1].innerText,
+             marque:detail.querySelectorAll('li > span')[3].innerText,
+        }       
+        console.table([article.id,article.name,article.marque]);
+        addtocart(article.id)
+}); 
+function addtocart(id){
+    let data={article_id:id}
+    let url='/updatecart'
+    fetch(url,{
+        method:'POST',
+        headers:{
+            'Content-type':'application/json'
+        },
+        body:JSON.stringify(data)
+  })
+  .then(resoponse => resoponse.json())
+  .then(data =>{
+    console.log('success:',data);
+  })
+  .catch((error)=>{
+    console.log('ERROR:',error);
+  }) ;
 }
+// there's a forbidden error, need to include a django crsf token 
 
-function handclick(e) {
-    
-        const btn = e.target;
-        const description = btn.closest('.description');
-        const name = description.querySelector('#name');
-        const marque = description.querySelector('#marque');
-        const price = description.querySelector('#price');
-        console.log('name:', name.textContent);
-        console.log('marque:', marque.textContent);
-        console.log('price:', price.textContent);
-        console.log('action:', btn);
-        console.log('parentElement:', description);
-}
+
+
+
+
+// const greeting=()=>{
+//     console.log('print hello world');
+// }
+// greeting();
+
