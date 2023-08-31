@@ -61,3 +61,8 @@ mysite/stock/__pycache__/urls.cpython-310.pyc
 mysite/stock/__pycache__/urls.cpython-311.pyc
 mysite/stock/__pycache__/views.cpython-310.pyc
 mysite/stock/__pycache__/views.cpython-311.pyc
+mysite/authentification/__pycache__/*.cpython
+mysite/authentification/__pycache__/*.pyc
+mysite/authentification/__pycache__/*.pyc/
+-r
+
