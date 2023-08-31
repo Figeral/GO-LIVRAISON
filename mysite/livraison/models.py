@@ -1,33 +1,18 @@
 from django.db import models
 from stock.models import *
 from django.utils import timezone
+from django.contrib.auth.models import User
 
-class User(models.Model):
-    name = models.CharField(max_length=50)
-    email = models.EmailField()
-    pw = models.CharField('mots de pass',max_length=50)
-    pwc = models.CharField('confirmation',max_length=50)
-    
-    class Meta:
-        verbose_name = "user"
-        verbose_name_plural = "users"
-
-    def __str__(self):
-        return self.name
 
 class Customer(models.Model):
-    name = models.CharField(max_length=50)
-    email = models.EmailField()
-    tel = models.BigIntegerField()
-
+    user=models.OneToOneField(User,on_delete=models.SET_NULL,name='User_Customer',null=True)
     
-
     class Meta:
         verbose_name = "costumer"
         verbose_name_plural = "customers"
 
     def __str__(self):
-        return self.name
+        return self.user.first_name
 #cart representation
 class Order(models.Model):
     customer=models.ForeignKey(Customer,on_delete=models.SET_NULL,related_name='customer_order',null=True)
@@ -68,6 +53,7 @@ class ArticleOrder(models.Model):
 class ShippingAddress(models.Model):
     customer=models.ForeignKey(Customer,on_delete=models.SET_NULL,related_name='customer_sa',null=True)
     command=models.ForeignKey(Order,on_delete=models.SET_NULL,related_name='Order_sa',null=True)
+    tel = models.BigIntegerField(null=False,default=False)
     town = models.CharField(max_length=50)
     quater = models.CharField(max_length=50)
 

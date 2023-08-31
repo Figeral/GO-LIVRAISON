@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'stock.apps.StockConfig',
-    'livraison.apps.LivraisonConfig'
+    'livraison.apps.LivraisonConfig',
+    'authentification.apps.AuthentificationConfig',
 ]
 
 MIDDLEWARE = [

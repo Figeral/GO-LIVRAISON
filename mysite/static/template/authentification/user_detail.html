@@ -1,0 +1,10 @@
+{% extends "../base.html" %}
+<title>{{user}}</title>
+{% block content %}
+<h1> welcome {{user}}</h1>
+<p>
+    <h2>user details</h2>
+</p>
+<a href="{% url 'authentification:log_out'%}"> <input type="submit" value="logout"></a>
+ 
+{% endblock content %}
